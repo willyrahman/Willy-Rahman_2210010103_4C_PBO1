@@ -4,11 +4,14 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class main {
+    //13. array
     private static Kapal1[] daftarKapal = new Kapal1[3];
     private static int kapalCount = 0;
+    // 12. I/O Sederhana
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        // 11. perulangan
         while (true) {
             System.out.println("Menu:");
             System.out.println("1. Tambah Kapal");
@@ -53,6 +56,7 @@ public class main {
 
         Kapal1 kapal;
         if (jenis == 1) {
+            // 2. object
             kapal = new Kapal1(nama, kecepatan, panjang);
         } else if (jenis == 2) {
             System.out.print("Apakah kapal pesiar memiliki fasilitas mewah? (true/false): ");
@@ -77,7 +81,7 @@ public class main {
             }
         }
     }
-
+    // 14. error handling
     private static int getInputInt() {
         try {
             return scanner.nextInt();

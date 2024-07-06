@@ -1,16 +1,18 @@
 package PBO1;
-
+// 1. class
 public class Kapal1 {
+    // 3. atribut
+    // 7. Encapsulation 
     private String nama;
     private int kecepatan;
     private int panjang;
-
+     // 4. constructor   
     public Kapal1(String nama, int kecepatan, int panjang) {
         this.nama = nama;
         this.kecepatan = kecepatan;
         this.panjang = panjang;
     }
-
+    // 6. accessor
     public String getNama() {
         return nama;
     }
@@ -22,7 +24,7 @@ public class Kapal1 {
     public int getKecepatan() {
         return kecepatan;
     }
-
+    // 5. mutator
     public void setKecepatan(int kecepatan) {
         this.kecepatan = kecepatan;
     }
@@ -35,7 +37,7 @@ public class Kapal1 {
         this.panjang = panjang;
     }
 
-    @Override
+    // 9.Polymorphism @Override
     public String toString() {
         return "Kapal{" +
                 "nama='" + nama + '\'' +
