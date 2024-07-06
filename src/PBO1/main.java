@@ -58,6 +58,7 @@ public class main {
 
        Kapal1 kapal;
     if (jenis == 1) {
+        // 2. object
         kapal = new Kapal1(nama, kecepatan, panjang);
     } else if (jenis == 2) {
         boolean fasilitasMewah;
