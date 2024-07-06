@@ -1,69 +1,46 @@
-
 package PBO1;
 
-// 1. Kelas
 public class Kapal1 {
-    // 3. Atribut
-    // 7. enkapsulasi
     private String nama;
-    private double kecepatan;
-    private double panjang;
+    private int kecepatan;
+    private int panjang;
 
-    // 4. Konstruktor
-    public Kapal1(String nama, double kecepatan, double panjang) {
+    public Kapal1(String nama, int kecepatan, int panjang) {
         this.nama = nama;
         this.kecepatan = kecepatan;
         this.panjang = panjang;
     }
 
-    // 6. Accessor
     public String getNama() {
         return nama;
     }
 
-    public double getKecepatan() {
-        return kecepatan;
-    }
-
-    public double getPanjang() {
-        return panjang;
-    }
-
-    // 5. Mutator
     public void setNama(String nama) {
         this.nama = nama;
     }
 
-    public void setKecepatan(double kecepatan) {
-        if (kecepatan >= 0) { // 14. Penanganan Error
-            this.kecepatan = kecepatan;
-        } else {
-            System.out.println("Kecepatan tidak bisa negatif.");
-        }
+    public int getKecepatan() {
+        return kecepatan;
     }
 
-      // Overloading setPanjang dengan tipe parameter int
+    public void setKecepatan(int kecepatan) {
+        this.kecepatan = kecepatan;
+    }
+
+    public int getPanjang() {
+        return panjang;
+    }
+
     public void setPanjang(int panjang) {
-        if (panjang >= 0) {
-            this.panjang = panjang;
-        } else {
-            System.out.println("Panjang tidak bisa negatif.");
-        }
-    }  
-    
-    public void setPanjang(double panjang) {
-        if (panjang >= 0) { // 14. Penanganan Error
-            this.panjang = panjang;
-        } else {
-            System.out.println("Panjang tidak bisa negatif.");
-        }
+        this.panjang = panjang;
     }
 
-    // 12. IO Sederhana
-    public void cetakDetil() {
-        System.out.println("Nama: " + nama);
-        System.out.println("Kecepatan: " + kecepatan);
-        System.out.println("Panjang: " + panjang);
+    @Override
+    public String toString() {
+        return "Kapal{" +
+                "nama='" + nama + '\'' +
+                ", kecepatan=" + kecepatan + " knot" +
+                ", panjang=" + panjang + " m" +
+                '}';
     }
 }
-

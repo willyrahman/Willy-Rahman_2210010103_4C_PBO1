@@ -1,35 +1,28 @@
-
 package PBO1;
 
-// 1. Kelas
-public class KapalPesiar extends Kapal1{
-       // 3. Atribut tambahan
-    private int kapasitasPenumpang;
+public class KapalPesiar extends Kapal1 {
+    private boolean fasilitasMewah;
 
-    // 4. Konstruktor
-    public KapalPesiar(String nama, double kecepatan, double panjang, int kapasitasPenumpang) {
+    public KapalPesiar(String nama, int kecepatan, int panjang, boolean fasilitasMewah) {
         super(nama, kecepatan, panjang);
-        this.kapasitasPenumpang = kapasitasPenumpang;
+        this.fasilitasMewah = fasilitasMewah;
     }
 
-    // 6. Accessor
-    public int getKapasitasPenumpang() {
-        return kapasitasPenumpang;
+    public boolean isFasilitasMewah() {
+        return fasilitasMewah;
     }
 
-    // 5. Mutator
-    public void setKapasitasPenumpang(int kapasitasPenumpang) {
-        if (kapasitasPenumpang >= 0) { // 14. Penanganan Error
-            this.kapasitasPenumpang = kapasitasPenumpang;
-        } else {
-            System.out.println("Kapasitas penumpang tidak bisa negatif.");
-        }
+    public void setFasilitasMewah(boolean fasilitasMewah) {
+        this.fasilitasMewah = fasilitasMewah;
     }
 
-    // 9. Polimorfisme
     @Override
-    public void cetakDetil() {
-        super.cetakDetil();
-        System.out.println("Kapasitas Penumpang: " + kapasitasPenumpang);
+    public String toString() {
+        return "KapalPesiar{" +
+                "nama='" + getNama() + '\'' +
+                ", kecepatan=" + getKecepatan() + " knot" +
+                ", panjang=" + getPanjang() + " m" +
+                ", fasilitasMewah=" + fasilitasMewah +
+                '}';
     }
 }
