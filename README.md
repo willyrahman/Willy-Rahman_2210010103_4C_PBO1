@@ -28,113 +28,171 @@ public class main {
 }
 ```
 
-2. **Object** adalah instance dari class. Pada kode ini, `mhs[i] = new MahasiswaDetail(nama, npm);` adalah contoh pembuatan object.
+2. **Object** adalah instance dari class. Pada kode ini, `kapal = new Kapal1(nama, kecepatan, panjang);
+kapal = new KapalPesiar(nama, kecepatan, panjang, fasilitasMewah);` adalah contoh pembuatan object.
 
 ```bash
-mhs[i] = new MahasiswaDetail(nama, npm);
+kapal = new Kapal1(nama, kecepatan, panjang);
+kapal = new KapalPesiar(nama, kecepatan, panjang, fasilitasMewah);
 ```
 
-3. **Atribut** adalah variabel yang ada dalam class. Pada kode ini, `nama` dan `npm` adalah contoh atribut.
+3. **Atribut** adalah variabel yang ada dalam class. Pada kode ini, `nama` ,`kecepatan`, `panjang` dan `fasilitasMewah`  adalah contoh atribut.
 
 ```bash
-String nama;
-String npm;
+    String nama;
+    int kecepatan;
+    int panjang;
+    boolean fasilitasMewah;
 ```
 
-4. **Constructor** adalah method yang pertama kali dijalankan pada saat pembuatan object. Pada kode ini, constructor ada di dalam class `Mahasiswa` dan `MahasiswaDetail`.
+4. **Constructor** adalah method yang pertama kali dijalankan pada saat pembuatan object. Pada kode ini, constructor ada di dalam class `Kapal1` dan `KapalPesiar`.
 
 ```bash
-public Mahasiswa(String nama, String npm) {
-    this.nama = nama;
-    this.npm = npm;
-}
+   public Kapal1(String nama, int kecepatan, int panjang) {
+        this.nama = nama;
+        this.kecepatan = kecepatan;
+        this.panjang = panjang;
+    }
 
-public MahasiswaDetail(String nama, String npm) {
-    super(nama, npm);
-}
+    public KapalPesiar(String nama, int kecepatan, int panjang, boolean fasilitasMewah) {
+        super(nama, kecepatan, panjang);
+        this.fasilitasMewah = fasilitasMewah;
+    }
 ```
 
-5. **Mutator** atau setter digunakan untuk mengubah nilai dari suatu atribut. Pada kode ini, `setNama` dan `setNpm` adalah contoh method mutator.
+5. **Mutator** atau setter digunakan untuk mengubah nilai dari suatu atribut. Pada kode ini, `setNama`,`setKecepatan`, `setPanjang` adalah contoh method mutator.
 
 ```bash
-public void setNama(String nama) {
-    this.nama = nama;
-}
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+    public void setKecepatan(int kecepatan) {
+        this.kecepatan = kecepatan;
+    }
 
-public void setNpm(String npm) {
-    this.npm = npm;
-}
+    public void setPanjang(int panjang) {
+        this.panjang = panjang;
+    }
+    public void setFasilitasMewah(boolean fasilitasMewah) {
+        this.fasilitasMewah = fasilitasMewah;
+    }
+    
 ```
 
-6. **Accessor** atau getter digunakan untuk mengambil nilai dari suatu atribut. Pada kode ini, `getNama`, `getNpm`, `getTahunMasuk`, `getFakultas`, `getProdi`, dan `getNoRegistrasi` adalah contoh method accessor.
+6. **Accessor** atau getter digunakan untuk mengambil nilai dari suatu atribut. Pada kode ini, `getNama`, `getKecepatan`, `getPanjang`, `isFasilitasMewah`, `getProdi` adalah contoh method accessor.
 
 ```bash
-public String getNama() {
-    return nama;
-}
+    public String getNama() {
+        return nama;
+    }
 
-public String getNpm() {
-    return npm;
-}
+    public int getKecepatan() {
+        return kecepatan;
+    }
+
+    public int getPanjang() {
+        return panjang;
+    }
+
+    public boolean isFasilitasMewah() {
+        return fasilitasMewah;
+    }
 ```
 
-7. **Encapsulation** adalah konsep menyembunyikan data dengan membuat atribut menjadi private dan hanya bisa diakses melalui method. Pada kode ini, atribut `nama` dan `npm` dienkapsulasi dan hanya bisa diakses melalui method getter dan setter.
+7. **Encapsulation** adalah konsep menyembunyikan data dengan membuat atribut menjadi private dan hanya bisa diakses melalui method. Pada kode ini, atribut`nama` , `kecepatan`, `panjang`, `fasilitasMewah` dienkapsulasi dan hanya bisa diakses melalui method getter dan setter.
 
 ```bash
-private String nama;
-private String npm;
+    private String nama;
+    private int kecepatan;
+    private int panjang;
+    private boolean fasilitasMewah;
 ```
 
 8. **Inheritance** adalah konsep di mana sebuah class bisa mewarisi property dan method dari class lain. Pada kode ini, `MahasiswaDetail` mewarisi `Mahasiswa` dengan sintaks `extends`.
 
 ```bash
-public class MahasiswaDetail extends Mahasiswa {
+public class KapalPesiar extends Kapal1 {
     ...
 }
 ```
 
-9. **Polymorphism** adalah konsep di mana sebuah nama dapat digunakan untuk merujuk ke beberapa tipe atau bentuk objek berbeda. Ini memungkinkan metode-metode dengan nama yang sama untuk berperilaku berbeda tergantung pada tipe objek yang mereka manipulasi, polymorphism bisa berbentuk Overloading ataupun Overriding. Pada kode ini, method `displayInfo(String)` di `Mahasiswa` merupakan overloading method `displayInfo` dan `displayInfo` di `MahasiswaDetail` merupakan override dari method `displayInfo` di `Mahasiswa`.
+9. **Polymorphism** adalah konsep di mana sebuah nama dapat digunakan untuk merujuk ke beberapa tipe atau bentuk objek berbeda. Ini memungkinkan metode-metode dengan nama yang sama untuk berperilaku berbeda tergantung pada tipe objek yang mereka manipulasi, polymorphism bisa berbentuk Overloading ataupun Overriding. Pada kode ini, method `public String toString()` di `Mahasiswa` merupakan overloading method `toString` dan `toString` di `KapalPesiar` merupakan override dari method `toString` di `Kapal1`.
 
 ```bash
-public String displayInfo(String kelas) {
-    return displayInfo() + "\nKelas: " + kelas;
-}
+ public String toString() {
+        return "KapalPesiar{" +
+                "nama='" + getNama() + '\'' +
+                ", kecepatan=" + getKecepatan() + " knot" +
+                ", panjang=" + getPanjang() + " m" +
+                ", fasilitasMewah=" + fasilitasMewah +
+                '}';
+    }
 
 @Override
-public String displayInfo() {
+public String toString() {
     ...
 }
 ```
 
-10. **Seleksi** adalah statement kontrol yang digunakan untuk membuat keputusan berdasarkan kondisi. Pada kode ini, digunakan seleksi `if else` dalam method `getFakultas` dan seleksi `switch` dalam method `getProdi`.
+10. **Seleksi** adalah statement kontrol yang digunakan untuk membuat keputusan berdasarkan kondisi. Pada kode ini, digunakan seleksi `if else` untuk membuat pilihan dan seleksi `if` untuk membuat pembatasan pada tambah kapal yang sesuai dengan array, seleksi `if else-if switch if else-if else else ` disini untuk menampilkan menu dan meminta input pengguna.
 
 ```bash
-public String getFakultas() {
-    if(getNpm().substring(2, 4).equals("10")){
-        return "Teknologi Informasi";
-    } else {
-        return "Fakultas lain";
-    }
+ switch (pilihan) {
+                case 1:
+                    tambahKapal();
+                    break;
+                case 2:
+                    tampilkanKapal();
+                    break;
+                case 3:
+                    System.out.println("Keluar...");
+                    return;
+                default:
+                    System.out.println("Pilihan tidak valid. Silakan coba lagi.");
+            }
 
     //return getNpm().substring(2, 4).equals("10") ? "Teknologi Informasi" : "Fakultas lain";
 }
 
-public String getProdi() {
-    switch(getNpm().substring(4, 6)) {
-        case "01":
-            return "Teknik Informatika";
-        case "02":
-            return "Sistem Informasi";
-        default:
-            return "Prodi lain";
+if (kapalCount >= daftarKapal.length) {
+            System.out.println("Daftar kapal penuh. Tidak dapat menambahkan kapal lagi.");
+            return;
+        }
+
+ if (jenis == 1) {
+        // 2. object
+        kapal = new Kapal1(nama, kecepatan, panjang);
+    } else if (jenis == 2) {
+        boolean fasilitasMewah;
+        while (true) {
+            System.out.print("Apakah kapal pesiar memiliki fasilitas mewah? (true/false): ");
+            String input = scanner.next();
+            if (input.equalsIgnoreCase("true")) {
+                fasilitasMewah = true;
+                break;
+            } else if (input.equalsIgnoreCase("false")) {
+                fasilitasMewah = false;
+                break;
+            } else {
+                System.out.println("Masukkan harus true atau false.");
+            }
+        }
+        kapal = new KapalPesiar(nama, kecepatan, panjang, fasilitasMewah);
+    } else {
+        System.out.println("Jenis kapal tidak valid.");
+        return;
     }
 }
 ```
 
-11. **Perulangan** adalah statement kontrol yang digunakan untuk menjalankan blok kode berulang kali. Pada kode ini, digunakan loop `for` untuk meminta input dan menampilkan data.
+11. **Perulangan** adalah statement kontrol yang digunakan untuk menjalankan blok kode berulang kali. Pada kode ini, digunakan loop `while` menampilkan menu ,meminta input dan menampilkan Apakah kapal pesiar memiliki fasilitas mewah .
 
 ```bash
-for (int i = 0; i < mahasiswas.length; i++) {
+while (true) {
+    ...
+}
+
+while (true) {
     ...
 }
 ```
@@ -142,28 +200,72 @@ for (int i = 0; i < mahasiswas.length; i++) {
 12. **Input Output Sederhana** digunakan untuk menerima input dari user dan menampilkan output ke user. Pada kode ini, digunakan class `Scanner` untuk menerima input dan method `System.out.println` untuk menampilkan output.
 
 ```bash
-Scanner scanner = new Scanner(System.in);
-System.out.print("Masukkan Nama Mahasiswa ke-" + (i + 1) + ": ");
-String nama = scanner.nextLine();
-
-System.out.println("\nData Mahasiswa:");
-System.out.println(mahasiswa.displayInfo());
-```
-
-13. **Array** adalah struktur data yang digunakan untuk menyimpan beberapa nilai dalam satu variabel. Pada kode ini, `MahasiswaDetail[] mahasiswas = new MahasiswaDetail[2];` adalah contoh penggunaan array.
-
-```bash
-MahasiswaDetail[] mahasiswas = new MahasiswaDetail[2];
-```
-
-14. **Error Handling** digunakan untuk menangani error yang mungkin terjadi saat runtime. Pada kode ini, digunakan `try catch` untuk menangani error.
-
-```bash
+private static Scanner scanner = new Scanner(System.in);
+System.out.print("Masukkan nama kapal: ");
+String nama = scanner.next();
+System.out.print("Apakah kapal pesiar memiliki fasilitas mewah? (true/false): ");
+String input = scanner.next();
 try {
-    // code that might throw an exception
-} catch (Exception e) {
-    System.out.println("Error: " + e.getMessage());
-}
+            return scanner.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Input harus berupa angka.");
+            scanner.next(); // Clear the invalid input
+            return -1;
+        }
+
+System.out.print("Masukkan nama kapal: ");
+System.out.print("Apakah kapal pesiar memiliki fasilitas mewah? (true/false): ");
+System.out.println("Input harus berupa angka.");
+```
+
+13. **Array** adalah struktur data yang digunakan untuk menyimpan beberapa nilai dalam satu variabel. Pada kode ini, `Kapal1[] daftarKapal = new Kapal1[3];` adalah contoh penggunaan array.
+
+```bash
+private static Kapal1[] daftarKapal = new Kapal1[3];
+```
+
+14. **Error Handling** digunakan untuk menangani error yang mungkin terjadi saat runtime. Pada kode ini, digunakan `try catch` dan `if else` langsung pada pembuatan object untuk menangani error.
+
+```bash
+if (jenis == 1) {
+        // 2. object
+        kapal = new Kapal1(nama, kecepatan, panjang);
+    } else if (jenis == 2) {
+        boolean fasilitasMewah;
+        while (true) {
+            System.out.print("Apakah kapal pesiar memiliki fasilitas mewah? (true/false): ");
+            String input = scanner.next();
+            if (input.equalsIgnoreCase("true")) {
+                fasilitasMewah = true;
+                break;
+            } else if (input.equalsIgnoreCase("false")) {
+                fasilitasMewah = false;
+                break;
+            } else {
+                System.out.println("Masukkan harus true atau false.");
+            }
+        }
+        kapal = new KapalPesiar(nama, kecepatan, panjang, fasilitasMewah);
+    } else {
+        System.out.println("Jenis kapal tidak valid.");
+        return;
+    }
+
+    daftarKapal[kapalCount] = kapal;
+    kapalCount++;
+    if (kapalCount == daftarKapal.length) {
+        System.out.println("Daftar kapal penuh. Tidak dapat menambahkan kapal lagi.");
+    } else {
+        System.out.println("Kapal berhasil ditambahkan.");
+    }
+
+try {
+            return scanner.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Input harus berupa angka.");
+            scanner.next(); // Clear the invalid input
+            return -1;
+        }
 ```
 
 ## Usulan nilai
@@ -188,5 +290,5 @@ try {
 
 ## Pembuat
 
-Nama: Muhammad Edya Rosadi
-NPM: 2110010001
+Nama: Willy Rahman
+NPM: 2110010103
