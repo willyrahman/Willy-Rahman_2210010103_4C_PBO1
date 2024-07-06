@@ -18,7 +18,7 @@ public class main {
             System.out.println("2. Tampilkan Hasil Kapal");
             System.out.println("3. Keluar");
             System.out.print("Pilih opsi: ");
-
+            // 10. seleksi
             int pilihan = getInputInt();
             switch (pilihan) {
                 case 1:
@@ -44,6 +44,8 @@ public class main {
 
         System.out.print("Masukkan jenis kapal (1. Kapal, 2. Kapal Pesiar): ");
         int jenis = getInputInt();
+        
+        
 
         System.out.print("Masukkan nama kapal: ");
         String nama = scanner.next();
@@ -54,23 +56,38 @@ public class main {
         System.out.print("Masukkan panjang kapal (dalam meter): ");
         int panjang = getInputInt();
 
-        Kapal1 kapal;
-        if (jenis == 1) {
-            // 2. object
-            kapal = new Kapal1(nama, kecepatan, panjang);
-        } else if (jenis == 2) {
+       Kapal1 kapal;
+    if (jenis == 1) {
+        kapal = new Kapal1(nama, kecepatan, panjang);
+    } else if (jenis == 2) {
+        boolean fasilitasMewah;
+        while (true) {
             System.out.print("Apakah kapal pesiar memiliki fasilitas mewah? (true/false): ");
-            boolean fasilitasMewah = scanner.nextBoolean();
-            kapal = new KapalPesiar(nama, kecepatan, panjang, fasilitasMewah);
-        } else {
-            System.out.println("Jenis kapal tidak valid.");
-            return;
+            String input = scanner.next();
+            if (input.equalsIgnoreCase("true")) {
+                fasilitasMewah = true;
+                break;
+            } else if (input.equalsIgnoreCase("false")) {
+                fasilitasMewah = false;
+                break;
+            } else {
+                System.out.println("Masukkan harus true atau false.");
+            }
         }
+        kapal = new KapalPesiar(nama, kecepatan, panjang, fasilitasMewah);
+    } else {
+        System.out.println("Jenis kapal tidak valid.");
+        return;
+    }
 
-        daftarKapal[kapalCount] = kapal;
-        kapalCount++;
+    daftarKapal[kapalCount] = kapal;
+    kapalCount++;
+    if (kapalCount == daftarKapal.length) {
+        System.out.println("Daftar kapal penuh. Tidak dapat menambahkan kapal lagi.");
+    } else {
         System.out.println("Kapal berhasil ditambahkan.");
     }
+}
 
     private static void tampilkanKapal() {
         if (kapalCount == 0) {
